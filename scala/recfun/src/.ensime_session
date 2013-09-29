@@ -1,0 +1,17 @@
+{
+  "breakpoints": [
+    {
+      "file_name": "/home/helluin/Documents/Git/scala/recfun/src/main/scala/recfun/Main.scala", 
+      "line": 7
+    }
+  ], 
+  "current_launch_config": "", 
+  "launch_configs": [
+    {
+      "args": "", 
+      "main_class": "", 
+      "name": "", 
+      "remote_address": ""
+    }
+  ]
+}
