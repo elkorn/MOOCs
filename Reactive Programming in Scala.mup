@@ -1,0 +1,168 @@
+{
+  "title": "Reactive Programming in Scala",
+  "id": 1,
+  "formatVersion": 2,
+  "ideas": {
+    "1": {
+      "title": "Monads",
+      "id": 12,
+      "ideas": {
+        "1": {
+          "title": "Parametric type M[T]",
+          "id": 14
+        },
+        "2": {
+          "title": "two operations",
+          "id": 15,
+          "ideas": {
+            "1": {
+              "title": "flatMap[U](F: T=> M[U]): M[U]",
+              "id": 16,
+              "ideas": {
+                "1": {
+                  "title": "often referred to as bind",
+                  "id": 18
+                }
+              }
+            },
+            "2": {
+              "title": "unit[T](x: T): M[T]",
+              "id": 17
+            },
+            "3": {
+              "title": "map CAN be defined",
+              "id": 24,
+              "ideas": {
+                "1": {
+                  "title": "m map f == m flatMap (x => unit(f(x)))",
+                  "id": 26
+                }
+              }
+            }
+          }
+        },
+        "3": {
+          "title": "examples",
+          "id": 19,
+          "ideas": {
+            "1": {
+              "title": "List: unit(x) = List(x)",
+              "id": 20
+            },
+            "2": {
+              "title": "Set: unit(x) = Set(x)",
+              "id": 21
+            },
+            "3": {
+              "title": "Option: unit(x) = Some(x)",
+              "id": 22
+            },
+            "4": {
+              "title": "Generator: unit(x) = Single(x)",
+              "id": 23
+            },
+            "5": {
+              "title": "Try",
+              "id": 37,
+              "ideas": {
+                "1": {
+                  "title": "resembles Option, BUT...",
+                  "id": 38,
+                  "ideas": {
+                    "2": {
+                      "title": "has a Failure case class with an exception",
+                      "id": 46,
+                      "attr": {
+                        "style": {
+                          "background": "#E0E0E0"
+                        }
+                      }
+                    },
+                    "3": {
+                      "title": " has a Success case class with a value",
+                      "ideas": {},
+                      "id": 47,
+                      "attr": {
+                        "style": {
+                          "background": "#E0E0E0"
+                        }
+                      }
+                    }
+                  }
+                },
+                "2": {
+                  "title": "Encapsulates a try-catch in it's apply definition",
+                  "id": 48
+                },
+                "3": {
+                  "title": "Try-valued computations can be composed in for expressions",
+                  "id": 49
+                }
+              }
+            }
+          }
+        },
+        "4": {
+          "title": "Laws",
+          "id": 27,
+          "ideas": {
+            "1": {
+              "title": "Associativity",
+              "id": 28,
+              "ideas": {
+                "1": {
+                  "title": "m flatMap f flatMap g == m flatMap (x => f(x) flatMap g)",
+                  "id": 29
+                },
+                "2": {
+                  "title": "Allows writing nested for expressions in one expr, using multiple values",
+                  "id": 35
+                }
+              }
+            },
+            "2": {
+              "title": "left unit",
+              "id": 30,
+              "ideas": {
+                "1": {
+                  "title": "unit(x) flatMap f == f(x)",
+                  "id": 33
+                },
+                "2": {
+                  "title": "Try fail this because Try(expr) flatMap f != f(expr)",
+                  "id": 50,
+                  "ideas": {
+                    "1": {
+                      "title": "That is because the LHS will not throw a non-fatal exception (it's handled), but the RHS might.",
+                      "id": 51
+                    }
+                  }
+                }
+              }
+            },
+            "3": {
+              "title": " right unit",
+              "id": 32,
+              "ideas": {
+                "1": {
+                  "title": "m flatMap unit == m",
+                  "id": 34
+                },
+                "2": {
+                  "title": "allows that                      for(x <- m) yield x == m",
+                  "id": 36
+                }
+              }
+            }
+          }
+        }
+      },
+      "attr": {
+        "style": {
+          "background": "#E0E0E0"
+        }
+      }
+    }
+  },
+  "links": []
+}
