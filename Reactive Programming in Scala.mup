@@ -160,6 +160,142 @@
       "attr": {
         "style": {
           "background": "#E0E0E0"
+        },
+        "collapsed": true
+      }
+    },
+    "2": {
+      "title": "Additional exercises",
+      "id": 63,
+      "ideas": {
+        "1": {
+          "title": "create a REPEAT...UNTIL loop construct",
+          "id": 64,
+          "ideas": {
+            "1": {
+              "title": "REPEAT { /* some operations */ } UNTIL (/*some condition*/)",
+              "id": 66
+            }
+          }
+        }
+      }
+    },
+    "-1": {
+      "title": "Mutability and state",
+      "id": 52,
+      "ideas": {
+        "1": {
+          "title": "Operational equivalence",
+          "id": 53,
+          "ideas": {
+            "1": {
+              "title": "Elements x and y are the same if no possible test can distinguish between them",
+              "id": 54
+            },
+            "2": {
+              "title": "Examples",
+              "id": 55,
+              "ideas": {
+                "1": {
+                  "title": "val x = new BankAccount; val y = new BankAccount;     f(x,y)",
+                  "id": 56,
+                  "ideas": {
+                    "1": {
+                      "title": "val x = new BankAccount; val y = new BankAccount;     f(x,x)",
+                      "ideas": {
+                        "1": {
+                          "title": "If there is a difference between the sequences - x and y are not the same",
+                          "id": 59
+                        }
+                      },
+                      "id": 58,
+                      "attr": {
+                        "style": {
+                          "background": "#E0E0E0"
+                        }
+                      }
+                    },
+                    "2": {
+                      "title": "f is an arbitrary function having some effects based on provided values",
+                      "id": 60
+                    }
+                  }
+                }
+              }
+            },
+            "3": {
+              "title": "To prove that two things are different, a single counter example is enough",
+              "id": 61
+            },
+            "4": {
+              "title": "To prove that two things are the same, a possibly infinite number of examples is required",
+              "id": 62
+            }
+          }
+        }
+      }
+    },
+    "-2": {
+      "title": "discrete event simulation",
+      "id": 67,
+      "ideas": {
+        "1": {
+          "title": "performs actions specified by user at a given moment",
+          "id": 68,
+          "ideas": {
+            "1": {
+              "title": "an action is a parameterless function",
+              "id": 69
+            }
+          }
+        },
+        "2": {
+          "title": "Simulation",
+          "id": 70,
+          "ideas": {
+            "1": {
+              "title": "currentTime: Int",
+              "id": 80
+            }
+          }
+        },
+        "3": {
+          "title": "Gates",
+          "id": 73,
+          "ideas": {
+            "1": {
+              "title": "Wire",
+              "id": 76,
+              "ideas": {
+                "1": {
+                  "title": "getSignal: Boolean",
+                  "id": 77
+                },
+                "2": {
+                  "title": "setSignal",
+                  "id": 78
+                },
+                "3": {
+                  "title": "addAction",
+                  "id": 79
+                }
+              },
+              "attr": {
+                "collapsed": true,
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          }
+        },
+        "4": {
+          "title": "Circuits",
+          "id": 74
+        },
+        "5": {
+          "title": "MySimulation",
+          "id": 75
         }
       }
     }
