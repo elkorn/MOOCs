@@ -39,6 +39,12 @@
                 }
               }
             }
+          },
+          "attr": {
+            "collapsed": true,
+            "style": {
+              "background": "#E0E0E0"
+            }
           }
         },
         "3": {
@@ -100,6 +106,12 @@
                 }
               }
             }
+          },
+          "attr": {
+            "collapsed": true,
+            "style": {
+              "background": "#E0E0E0"
+            }
           }
         },
         "4": {
@@ -154,14 +166,101 @@
                 }
               }
             }
+          },
+          "attr": {
+            "collapsed": true,
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "5": {
+          "title": "Monads are types that have operators which guide you through the happy path",
+          "id": 90
+        },
+        "6": {
+          "title": "Try[T]",
+          "id": 91,
+          "ideas": {
+            "1": {
+              "title": "Use the scala.util.Try[T] type to present the possibility of failure explicitly",
+              "id": 82,
+              "ideas": {
+                "1": {
+                  "title": "higher-order functions can also operate on the Try type",
+                  "id": 83,
+                  "ideas": {
+                    "1": {
+                      "title": "flatMap[S](f: (T => Try[T]))",
+                      "id": 84
+                    },
+                    "2": {
+                      "title": "flatten",
+                      "id": 85
+                    },
+                    "3": {
+                      "title": "map",
+                      "id": 86
+                    },
+                    "4": {
+                      "title": "filter",
+                      "id": 87
+                    },
+                    "5": {
+                      "title": "recoverWith",
+                      "id": 88
+                    }
+                  },
+                  "attr": {
+                    "collapsed": true,
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                },
+                "2": {
+                  "title": "Try[T] is an exception-handling monad",
+                  "id": 89
+                }
+              },
+              "attr": {
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          }
+        },
+        "7": {
+          "title": "Future[T]",
+          "id": 92,
+          "ideas": {
+            "1": {
+              "title": "scala.concurrent",
+              "id": 93,
+              "ideas": {
+                "1": {
+                  "title": "onComplete(callback: Try[T] => Unit): Unit",
+                  "id": 94
+                },
+                "2": {
+                  "title": "apply(body: => T)",
+                  "id": 97
+                }
+              }
+            },
+            "2": {
+              "title": "always use Future for long-running computations",
+              "id": 95,
+              "ideas": {}
+            }
           }
         }
       },
       "attr": {
         "style": {
           "background": "#E0E0E0"
-        },
-        "collapsed": true
+        }
       }
     },
     "2": {
@@ -175,6 +274,12 @@
             "1": {
               "title": "REPEAT { /* some operations */ } UNTIL (/*some condition*/)",
               "id": 66
+            }
+          },
+          "attr": {
+            "collapsed": true,
+            "style": {
+              "background": "#E0E0E0"
             }
           }
         }
@@ -232,6 +337,12 @@
               "id": 62
             }
           }
+        }
+      },
+      "attr": {
+        "collapsed": true,
+        "style": {
+          "background": "#E0E0E0"
         }
       }
     },
@@ -296,6 +407,12 @@
         "5": {
           "title": "MySimulation",
           "id": 75
+        }
+      },
+      "attr": {
+        "collapsed": true,
+        "style": {
+          "background": "#E0E0E0"
         }
       }
     }
