@@ -7,6 +7,7 @@ import scala.concurrent.duration._
 import akka.actor.Cancellable
 import akka.actor.ActorLogging
 import scala.language.postfixOps
+import akka.event.LoggingReceive
 
 object Replicator {
   case class Replicate(key: String, valueOption: Option[String], id: Long)
@@ -17,7 +18,7 @@ object Replicator {
 
   def props(replica: ActorRef): Props = Props(new Replicator(replica))
 }
-class Replicator(val replica: ActorRef) extends Actor  with ActorLogging{
+class Replicator(val replica: ActorRef) extends Actor  with ActorLogging {
   import Replicator._
   import Replica._
   import context.dispatcher
@@ -41,15 +42,19 @@ class Replicator(val replica: ActorRef) extends Actor  with ActorLogging{
   }
 
   /* TODO Behavior for the Replicator. */
-  def receive: Receive = {
+  def receive: Receive = LoggingReceive {
     case Replicate(key, valueOption, seq) => {
+      log.info(s"Got Replicate($key, $valueOption, $seq) to $replica")
       acks += (seq) -> (sender, Replicate(key, valueOption, seq))
+      log.info(s"[Replicator] Replicating ${key},${valueOption},${seq}")
       cancellables += (key, seq) -> context.system.scheduler.schedule(0 milliseconds, 100 milliseconds) {
+        log.info(s"[Replicator] Sending Snapshot(${key}, ${valueOption}, ${seq}) to $replica")
         replica ! Snapshot(key, valueOption, seq)
       }
     }
     
     case SnapshotAck(key, seq) => {
+      log.info(s"[Replicator] Got SnapshotAck(${key}, ${seq}) from $sender")
       cancellables(key, seq).cancel
       cancellables -= ((key, seq))
       acks(seq)._1 ! Replicated(acks(seq)._2.key, acks(seq)._2.id)

@@ -8,7 +8,6 @@ object Arbiter {
 
   case object JoinedPrimary
   case object JoinedSecondary
-
   /**
    * This message contains all replicas currently known to the arbiter, including the primary.
    */
@@ -19,6 +18,7 @@ class Arbiter extends Actor {
   import Arbiter._
   var leader: Option[ActorRef] = None
   var replicas = Set.empty[ActorRef]
+
 
   def receive = {
     case Join =>

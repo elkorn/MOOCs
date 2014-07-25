@@ -1,19 +1,14 @@
 package kvstore
 
-import scala.concurrent.duration.DurationInt
-
+import akka.testkit.{ TestProbe, TestKit, ImplicitSender }
 import org.scalatest.BeforeAndAfterAll
-import org.scalatest.FunSuite
 import org.scalatest.matchers.ShouldMatchers
-
+import org.scalatest.FunSuite
 import akka.actor.ActorSystem
-import akka.actor.actorRef2Scala
-import akka.testkit.ImplicitSender
-import akka.testkit.TestKit
-import akka.testkit.TestProbe
-import kvstore.Replicator.Replicate
-import kvstore.Replicator.Snapshot
-import kvstore.Replicator.SnapshotAck
+import scala.concurrent.duration._
+import kvstore.Arbiter.{ JoinedSecondary, Join }
+import kvstore.Persistence.{ Persisted, Persist }
+import kvstore.Replicator.{ SnapshotAck, Snapshot, Replicate }
 
 class Step3_ReplicatorSpec extends TestKit(ActorSystem("Step3ReplicatorSpec"))
   with FunSuite
