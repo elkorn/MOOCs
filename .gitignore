@@ -18,3 +18,5 @@ project/
 *.png
 .ensime*/
 .metadata/
+.DS_Store/
+octave-workspace
