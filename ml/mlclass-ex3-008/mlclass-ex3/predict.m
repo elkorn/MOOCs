@@ -21,14 +21,23 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% Add ones to the X data matrix
+X = [ones(m, 1) X];
 
-
-
-
-
-
-
-
+% The trick here is to do something along the lines of one-vs-all, but taking
+% into account each layer of the network.
+for example=1:m
+    % z2 equals the product of a1 and Θ1
+    z2 = X(example, :) * Theta1';
+    % a2 is the result of passing z2 through g()
+    % a2 then has a column of 1st added (bias units) as the first column.
+    a2 = [1 sigmoid(z2)];
+    % z3 equals the product of a2 and Θ2
+    z3 = a2 * Theta2';
+    % a3 is the result of passing z3 through g()
+    a3 = sigmoid(z3);
+    [_ p(example)] = max(a3);
+end
 % =========================================================================
 
 
