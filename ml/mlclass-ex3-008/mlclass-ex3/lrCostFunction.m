@@ -50,6 +50,6 @@ J = (-y' * log(h(X, theta)) - ((1 - y)' * log(1 - h(X, theta)))) / m + jRegulari
 
 gradientRegularizations = lambda * theta' * shouldRegularizeGradient;
 
-grad = (1/m) * (gradBase() + gradientRegularizations);
+grad = ((1/m) * (gradBase() + gradientRegularizations))';
 
 end
