@@ -30,7 +30,13 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
+% we are predicting the class for all of the elements in X
+for example=1:m
+    % we are taking an example and siphoning it through the probability vector.
+    % By probability we mean the probability of that it belongs to a given class
+    % the resulting vector contains class indices.
+    [_, p(example)] = max(X(example,:) * all_theta');
+end
 
 
 
